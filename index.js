@@ -2,16 +2,17 @@
 $(document).ready(() => {
     console.log("ready!")
 
-    function renderMovie(movieData) {
+    function renderMovie(movieArray) {
         console.log("I'm here")
         // console.log(movieData)
 
-        var movieHTML = movieData.map( movie => {
+        var movieHTML = movieArray.map( currentMovie => {
+            console.log(movieHTML);
 
-            return `<p>${movie.Title}</p>` 
+            return `<p>${currentMovie.Title}</p>` 
         });
 
-        $('.results').html(movie.HTML)
+        $('.results').html(currentMovie.HTML)
         console.log()
     }
    
