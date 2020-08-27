@@ -14,10 +14,10 @@ body {
 	margin-top: 20px;
 }
 
-.movies-container {
+ .movies-container {
 	display: flex;
-	justify-content: space-between;
 	flex-wrap: wrap;
+	justify-content: space-between;
 
-}
+} 
 
