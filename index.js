@@ -16,7 +16,7 @@ $(document).ready(() => {
                             <div class="card-body">
                             <h5 class="card-title">${currentMovie.Title}</h5>
                             <p class="card-text">${currentMovie.Year}</p>
-                            <a href="#" class="btn btn-primary">Add!</a>
+                            <a href="#" onclick="saveToWatchlist(`${currentMovie.imdbID}`)" class="btn btn-primary">Add Movie!</a>
                             </div>
                         </div>`
             
@@ -32,9 +32,15 @@ $(document).ready(() => {
 
     }
 
-    $('#search-form') 
+    $('#search-form').click(function (e) {
+        $(".movies-container").empty();
+        e.preventDefault();
+        renderMovies(movieData);
+    }); 
    
-    renderMovies(movieData)
+    function saveToWatchlist(imdbID) {
+
+    }
    
 });
 
