@@ -16,17 +16,14 @@ $(document).ready(() => {
                             <div class="card-body">
                             <h5 class="card-title">${currentMovie.Title}</h5>
                             <p class="card-text">${currentMovie.Year}</p>
-                            <a href="#" onclick="saveToWatchlist(`${currentMovie.imdbID}`)" class="btn btn-primary">Add Movie!</a>
+                            <a href="#" onclick="saveToWatchlist('${currentMovie.imdbID}')" class="btn btn-primary">Add Movie</a>
                             </div>
                         </div>`
             
-        )} )
+        )} );
 
         // console.log(movieHTML.join(''));
         
-
-
-        // return $('.movies-container').html(movieHTML.join(' '))
         return movieHTML.join('');
         // console.log()
 
@@ -39,8 +36,21 @@ $(document).ready(() => {
     }); 
    
     function saveToWatchlist(imdbID) {
+        let movie = movieData.find((currentMovie) => {
+            return currentMovie.imdbID == imdbID;
+            
+        });
+        let watchlistJSON = localStorage.getItem("watchlist");
+        let watchlist = JSON.parse(watchlistJSON);
+        if (watchlist === null) {
+            watchlist = [];
 
-    }
+        }
+        watchlist.push(movie);
+        watchlistJSON = JSON.stringify(watchlist);
+        localStorage.setItem('watchlist', watchlistJSON);
+        };
+    
    
 });
 
