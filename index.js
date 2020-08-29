@@ -6,7 +6,7 @@ $(document).ready(() => {
         console.log("I'm here")
         // console.log(movieData);
 
-        var movieHTML = movieArray.map( currentMovie => {
+        let movieHTML = movieArray.map( currentMovie => {
             // console.log(currentMovie.Title);
 
             $(".movies-container").append( 
@@ -18,9 +18,10 @@ $(document).ready(() => {
                             <p class="card-text">${currentMovie.Year}</p>
                             <a href="#" onclick="saveToWatchlist('${currentMovie.imdbID}')" class="btn btn-primary">Add Movie</a>
                             </div>
-                        </div>`
-            
-        )} );
+                        </div>
+                    </div>`
+            );
+        } );
 
         // console.log(movieHTML.join(''));
         
@@ -37,10 +38,10 @@ $(document).ready(() => {
    
     function saveToWatchlist(imdbID) {
         let movie = movieData.find((currentMovie) => {
-            return currentMovie.imdbID == imdbID;
+            return currentMovie.imdbID === imdbID;
             
         });
-        let watchlistJSON = localStorage.getItem("watchlist");
+        let watchlistJSON = localStorage.getItem('watchlist');
         let watchlist = JSON.parse(watchlistJSON);
         if (watchlist === null) {
             watchlist = [];
