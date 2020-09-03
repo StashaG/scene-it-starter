@@ -35,6 +35,8 @@ $(document).ready(() => {
         e.preventDefault()
         let searchString = $('.search-bar').val(); //searchString variable to pass to the OMDB API in the querystring
         console.log(searchString);
+        let urlEncodedSearchString = encodeURIComponent(searchString); //sanitize user input to provide a url-friendly search string. 
+        console.log(searchString);
         renderMovies(movieData);
     }); 
    
