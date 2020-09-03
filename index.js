@@ -31,8 +31,10 @@ $(document).ready(() => {
     }
 
     $('#search-form').click(function (e) {
-        $(".movies-container").empty();
-        e.preventDefault();
+        $('.movies-container').empty();
+        e.preventDefault()
+        let searchString = $('.search-bar').val(); //searchString variable to pass to the OMDB API in the querystring
+        console.log(searchString);
         renderMovies(movieData);
     }); 
    
